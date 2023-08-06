@@ -6,11 +6,31 @@ Example: The binary representation of 1234 is 10011010010, so the function shoul
 function countBits(int $n): int
 {
     if ($n < 0) {
-        return;
+        return 0;
     }
 
     $numberInBinary =  decbin($n);
     return substr_count($numberInBinary, '1');
 }
 
-echo countBits(1234);
+
+function countBitsWithLoop(int $number): int
+{
+    if ($number < 0) {
+        return 0;
+    }
+
+    $numberInBinary =  str_split(decbin($number));
+
+
+    $count = 0;
+    foreach ($numberInBinary as $n) {
+        if ($n == '1') {
+            $count++;
+        }
+    }
+
+    return $count;
+}
+
+echo countBitsWithLoop(1234);

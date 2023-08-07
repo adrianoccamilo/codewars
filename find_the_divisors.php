@@ -3,7 +3,7 @@
 function divisors(int $number): array|string
 {
     $divisors = [];
-    $except = [1, $number];
+    $isPrime = [1, $number];
 
     for ($i = 1; $i <= $number; $i++) {
 
@@ -12,12 +12,12 @@ function divisors(int $number): array|string
 
 
 
-    if ($divisors == $except) {
+    if ($divisors == $isPrime) {
         return  $number . ' is prime';
     }
     //array_diff results array starts at index 1
     //use array_values to reindex starting from 0
-    return array_values(array_diff($divisors, $except));
+    return array_values(array_diff($divisors, $isPrime));
 }
 
 var_dump(divisors(15));
